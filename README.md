@@ -55,9 +55,23 @@
 
 ---
 
+## แก้ปัญหา
+
+**Generate แล้วขึ้น error เขียนไฟล์ไม่ได้ (เช่น `[Errno 9]` / Bad file descriptor)**
+สาเหตุที่พบบ่อยคือ **Windows Defender "Controlled Folder Access"** (ระบบกัน ransomware)
+บล็อกไม่ให้โปรแกรมหน้าใหม่เขียนไฟล์ลงโฟลเดอร์ Documents / My Games วิธีแก้:
+1. Windows Security → **Virus & threat protection** → **Ransomware protection** →
+   **Controlled folder access** → **Allow an app through Controlled folder access** →
+   เพิ่ม `PoE-Filter-Generator.exe`
+2. หรือกด **Browse...** ที่ช่อง *Game folder override* ในโปรแกรม แล้วเลือกโฟลเดอร์
+   filter ของเกมเอง (โฟลเดอร์ที่ไม่ถูกบล็อก)
+
+> ค่าเริ่มต้นของ Windows คือ "ปิด" CFA — ส่วนใหญ่จะไม่เจอปัญหานี้ แต่ถ้าคุณเปิดไว้ ใช้วิธีด้านบน
+
+---
+
 ## หมายเหตุ
 
-- ราคาสินค้าดึงจากฐานข้อมูลชุมชน (poe-data-hub) อัปเดตเป็นระยะ
 - โหมดปกติต่อยอดจาก **[NeverSink Filter](https://github.com/NeverSinkDev/NeverSink-Filter)** (เครดิต NeverSink)
 - โปรแกรมนี้**ไม่มีส่วนเกี่ยวข้อง**กับ Grinding Gear Games
 - filter ที่สร้างจะเขียนทับไฟล์ในโฟลเดอร์ filter ของเกม — ตรวจชื่อไฟล์ก่อนถ้ามี filter เดิมอยู่
